@@ -13,7 +13,9 @@ class UploadApi {
     uploadImge = (imageUri) => {
 
         let isIOS = Configuration.PLATFORM_IOS;
-        let updatedImageUri = isIOS ? "file://" + imageUri : imageUri.replace("file:///", "/"); //imageUri.replace("///", "//");
+        // IOS and Android provides different file paths so we need to preprocess
+        // file paths before using.
+        let updatedImageUri = isIOS ? "file://" + imageUri : imageUri.replace("file:///", "/");
 
         const options = {
             url: Configuration.API_URL + "/upload/" + this.apiToken,
