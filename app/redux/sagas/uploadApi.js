@@ -10,7 +10,7 @@ class UploadApi {
         this.apiToken = token;
     }
 
-    uploadImge = (imageUri) => {
+    uploadImage = (imageUri) => {
 
         let isIOS = Configuration.PLATFORM_IOS;
         // IOS and Android provides different file paths so we need to preprocess
