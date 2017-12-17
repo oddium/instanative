@@ -5,6 +5,7 @@ import Button from "react-native-button";
 import Modal from "react-native-modal";
 import BaseScreen from "../BaseScreenRN";
 import CommonHeader from "../../components/CommonHeader";
+import InstaImagePreview from "../../components/InstaImagePreview";
 import Configuration from "../../config/Configuration";
 // redux
 import { connect } from "react-redux";
@@ -101,7 +102,6 @@ class ProfileScreen extends BaseScreen {
           <FlatList
             style={{ flex: 1 }}
             data={myPhotos}
-            numColumns={2}
             keyExtractor={this._keyExtractor}
             renderItem={this._renderItem}
             ListEmptyComponent={this._renderNoPhotoFound}
@@ -114,7 +114,7 @@ class ProfileScreen extends BaseScreen {
   _keyExtractor = (item, index) => item.key;
 
   _renderItem = ({ item }) => {
-    return (<Image resizeMode={"stretch"} style={{height: 150, width: "50%"}} source={{ uri: Configuration.STATIC_HOST + item.source }}/>);
+    return (<InstaImagePreview source={item.source} />);
   }
 
   _renderNoPhotoFound = () => {
