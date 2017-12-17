@@ -5,7 +5,7 @@ import Configuration from "../config/Configuration";
 
 const { width } = Dimensions.get('window');
 
-export default class AvView extends Component {
+export default class InstaImage extends Component {
 
   state = {
 

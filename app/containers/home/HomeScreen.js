@@ -3,16 +3,13 @@ import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity } from 'react
 import { Navigation } from "react-native-navigation";
 import Video from 'react-native-video'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import AvView from '../../components/AvView'
+import InstaImage from '../../components/InstaImage'
 import BaseScreen from "../BaseScreenRN";
 import CommonHeader from "../../components/CommonHeader";
 import UploadMonitor from "../../components/UploadMonitor";
 // redux
 import { connect } from "react-redux";
 import { fetchRecentMedia } from "../../redux/media/Actions";
-
-const visibleCount = 0;
-const flag = false;
 
 class HomeScreen extends BaseScreen {
 
@@ -60,7 +57,7 @@ class HomeScreen extends BaseScreen {
                   <Ionicons name="ios-more" size={30} color="black" style={{ marginRight: 15 }} />
                 </View>
               </View>
-              <AvView type={item.type} source={item.source} />
+              <InstaImage type={item.type} source={item.source} />
               <View style={{ height: 54, backgroundColor: 'white', flexDirection: 'row' }}>
                 <Ionicons name="ios-heart-outline" size={34} color="black" style={{ marginTop: 12, marginLeft: 15 }} />
                 <Ionicons name="ios-text-outline" size={34} color="black" style={{ marginTop: 12, marginLeft: 20 }} />
