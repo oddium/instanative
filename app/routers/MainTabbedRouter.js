@@ -5,7 +5,7 @@ import LoginScreen from "../containers/login/LoginScreen";
 import EmptyScreen from "../containers/media/EmptyScreen";
 import HomeScreen from "../containers/home/HomeScreen";
 import ProfileScreen from "../containers/profile/ProfileScreen";
-import CustomTab from "./CustomTab";
+import InstaTab from "./InstaTab";
 
 export const MainTab = StackNavigator({
   LoginScreen: {
@@ -34,7 +34,7 @@ export const Tabs = TabNavigator({
     showIcon: true,
     showLabel: false,
   },
-  tabBarComponent: CustomTab,
+  tabBarComponent: InstaTab,
   tabBarPosition: 'bottom',
   animationEnabled: false,
   lazy : true,

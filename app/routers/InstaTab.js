@@ -1,6 +1,12 @@
 
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback, Text, Dimensions } from 'react-native';
+import { 
+  View, 
+  StyleSheet, 
+  TouchableWithoutFeedback, 
+  Text, 
+  Dimensions 
+} from 'react-native';
 import { Icon } from 'react-native-elements';
 // redux
 import { connect } from "react-redux";
@@ -32,9 +38,10 @@ const styles = {
 
 const iconMap = [["entypo", "home"], ["entypo", "squared-plus"],["ionicon", "ios-person"]];
 
-class TabBar extends Component {
+class InstaTab extends Component {
 
   render() {
+
     const {
       navigation,
       jumpToIndex
@@ -66,6 +73,7 @@ class TabBar extends Component {
   }
 
   _jumpToIndex = (index) => {
+    
     const {
       navigation,
       jumpToIndex
@@ -89,4 +97,4 @@ const mapStateToProps = state => ({
     global : state.global
 });
 
-export default connect(mapStateToProps, bindAction)(TabBar);
+export default connect(mapStateToProps, bindAction)(InstaTab);
