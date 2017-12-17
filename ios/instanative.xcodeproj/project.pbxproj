@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -39,6 +38,7 @@
 		B10E6EEC340E49DD8E007481 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C8F9659B24C43D793E2DD05 /* Ionicons.ttf */; };
 		E10336ED3018441EB6167DD5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B85B29C279D842B997041F14 /* MaterialIcons.ttf */; };
 		FF1455BCAE194CF485793EDE /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C331101506E54EAD9B2178C8 /* SimpleLineIcons.ttf */; };
+		72DAC2F7B2B145DD90F7EF8B /* libFastImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A22BAEE5CE441BA8E0D10AF /* libFastImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -373,6 +373,8 @@
 		C331101506E54EAD9B2178C8 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		E65705E2818B4C93BFF6B97C /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		ED8A5878555F4C77AF7FBC92 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		FC1B2B321CC442C2BE374FFF /* FastImage.xcodeproj */ = {isa = PBXFileReference; name = "FastImage.xcodeproj"; path = "../node_modules/react-native-fast-image/ios/FastImage.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		5A22BAEE5CE441BA8E0D10AF /* libFastImage.a */ = {isa = PBXFileReference; name = "libFastImage.a"; path = "libFastImage.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +400,7 @@
 				A8FADB4451A740D4A0F39633 /* libRNVectorIcons.a in Frameworks */,
 				66B22C500BD14A6DB0CBC265 /* libRCTCamera.a in Frameworks */,
 				46F8D1F9B5C4446EB5FF6961 /* libVydiaRNFileUploader.a in Frameworks */,
+				72DAC2F7B2B145DD90F7EF8B /* libFastImage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +617,7 @@
 				E65705E2818B4C93BFF6B97C /* RNVectorIcons.xcodeproj */,
 				06679408E76E45E4BA586450 /* RCTCamera.xcodeproj */,
 				9BAD5AFC4CC9450695117A4C /* VydiaRNFileUploader.xcodeproj */,
+				FC1B2B321CC442C2BE374FFF /* FastImage.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1168,11 +1172,13 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 				INFOPLIST_FILE = instanative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/instanative\"",
 					"\"$(SRCROOT)/instanative\"",
 					"\"$(SRCROOT)/instanative\"",
 				);
@@ -1198,11 +1204,13 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-navigation/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
+					"$(SRCROOT)/../node_modules/react-native-fast-image/ios/FastImage/**",
 				);
 				INFOPLIST_FILE = instanative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/instanative\"",
 					"\"$(SRCROOT)/instanative\"",
 					"\"$(SRCROOT)/instanative\"",
 				);

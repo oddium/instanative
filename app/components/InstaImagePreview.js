@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Image, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Configuration from "../config/Configuration";
+import FastImage from 'react-native-fast-image';
 
 const { width } = Dimensions.get('window');
 
@@ -19,21 +20,26 @@ export default class InstaImagePreview extends Component {
 
     render() {
         let {source,random} = this.state;
-
-        return <Image style={{ height: 600, width }}
-                        source={{ uri: this._getImageSource() }} 
-                        onError={this._reloadImage}
-                        resizeMode="contain" />
+        console.log("uri ->")
+        return <FastImage style={{ height: 600, width }}
+                        source={{
+                            uri : this._getImageSource(),
+                            priority: FastImage.priority.normal
+                        }}
+                        resizeMode={FastImage.resizeMode.contain} />
     }
-
+    
+    _getImageSource = () => {
+        let {source, random} = this.state; 
+        return Configuration.STATIC_HOST + source + "?_=" + random;
+    }
+    /*
     _reloadImage = (error) => {
         let {source, random} = this.state; 
         console.log("Error while loading image err ->", error.nativeEvent);
         this.setState({random : "" + new Date().getTime() });
     }
 
-    _getImageSource = () => {
-        let {source, random} = this.state; 
-        return Configuration.STATIC_HOST + source + "?_=" + random;
-    }
+
+    */
 }
