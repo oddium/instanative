@@ -7,20 +7,8 @@ const { width } = Dimensions.get('window');
 
 export default class InstaImage extends Component {
 
-  state = {
-
-  }
-
   constructor(props) {
     super(props);
-  }
-
-  componentWillMount() {
-    if (this.props.type === 'image') {
-      Image.getSize(Configuration.STATIC_HOST + this.props.source, (w, h) => {
-        this.setState({ imageHeight: Math.floor(h * (width / w)) })
-      });
-    }
   }
 
   render() {

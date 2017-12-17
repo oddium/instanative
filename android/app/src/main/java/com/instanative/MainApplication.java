@@ -3,6 +3,7 @@ package com.instanative;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dylanvann.fastimage.FastImageViewPackage;
 import com.vydia.RNUploader.UploaderReactPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.brentvatne.react.ReactVideoPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FastImageViewPackage(),
             new UploaderReactPackage(),
             new RCTCameraPackage(),
             new ReactVideoPackage(),
