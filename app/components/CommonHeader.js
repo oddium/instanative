@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import { View, Image, Text, StyleSheet, Dimensions, TouchableOpacity } from 'react-native'
-import Video from 'react-native-video'
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Configuration from "../config/Configuration";
+import { 
+    View, 
+    Image, 
+    Text, 
+    StyleSheet, 
+    Dimensions, 
+    TouchableOpacity 
+} from 'react-native'
 
 const styles = {
     commonHeader : {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavigationActions } from 'react-navigation'
+import { NavigationActions } from 'react-navigation';
 
 //Base screen for React Navigation
 export default class BaseScreen extends Component {
@@ -10,9 +10,5 @@ export default class BaseScreen extends Component {
 
     navigateToScreen = (screenName, props) => {
         this.props.navigation.navigate(screenName, { ...props });
-    }
-
-    switchToTab = () => {
-        
     }
 }
