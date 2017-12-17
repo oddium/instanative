@@ -11,14 +11,6 @@ export default class InstaImage extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    /*
-    Image.getSize(Configuration.STATIC_HOST + this.props.source, (w, h) => {
-      this.setState({ imageHeight: Math.floor(h * (width / w)) })
-    });
-    */
-  }
-
   render() {
       return (
         <View>

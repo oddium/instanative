@@ -20,7 +20,6 @@ export default class InstaImagePreview extends Component {
 
     render() {
         let {source,random} = this.state;
-        console.log("uri ->")
         return <FastImage style={{ height: 600, width }}
                         source={{
                             uri : this._getImageSource(),
@@ -28,18 +27,9 @@ export default class InstaImagePreview extends Component {
                         }}
                         resizeMode={FastImage.resizeMode.contain} />
     }
-    
+
     _getImageSource = () => {
         let {source, random} = this.state; 
         return Configuration.STATIC_HOST + source + "?_=" + random;
     }
-    /*
-    _reloadImage = (error) => {
-        let {source, random} = this.state; 
-        console.log("Error while loading image err ->", error.nativeEvent);
-        this.setState({random : "" + new Date().getTime() });
-    }
-
-
-    */
 }
