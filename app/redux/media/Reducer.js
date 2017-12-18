@@ -17,6 +17,7 @@ const initialState = {
     fetchMyPhotosCompleted : false,
     activeUpload : {
         running : false,
+        completed : false,
         progress : 0
     }
 };
@@ -27,7 +28,14 @@ export default function (state = initialState, action) {
         return {
             ...state,
             fetchInProgress : true,
-            fetchCompleted : false
+            fetchCompleted : false,
+            // eger activeUpload flaglerini clear etmez isek
+            // HomeScreen ekranında sonsuz döngüye sebep oluruz.
+            activeUpload : {
+                running : false,
+                completed : false,
+                progress : 0
+            }
         }
     }
     if (action.type === FETCH_RECENT_MEDIA_SUCCESS) {
@@ -58,6 +66,7 @@ export default function (state = initialState, action) {
             ...state,
             activeUpload : {
                 running : true,
+                completed : false,
                 progress : 0
             }           
         }        
@@ -67,6 +76,7 @@ export default function (state = initialState, action) {
             ...state,
             activeUpload : {
                 running : true,
+                completed : false,
                 progress : action.payload.progress
             }           
         }        
@@ -76,6 +86,7 @@ export default function (state = initialState, action) {
             ...state,
             activeUpload : {
                 running : false,
+                completed : true,
                 progress : 0
             }
         }

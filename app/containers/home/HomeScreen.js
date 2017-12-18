@@ -25,6 +25,13 @@ class HomeScreen extends BaseScreen {
     this.props.fetchRecentMedia();
   }
 
+  componentWillReceiveProps(nextProps) {
+    let {activeUpload} = this.props.media;
+    if (!activeUpload.running && activeUpload.completed) {
+      this.props.fetchRecentMedia();
+    }
+  }
+
   render() {
     return (
       <View style={{flex: 1}}>

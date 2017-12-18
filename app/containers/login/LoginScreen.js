@@ -8,7 +8,14 @@ import { tryAutoLogin, tryLogin, updateLoginForm } from "../../redux/auth/Action
 
 const styles = {
   input : {
-    flex: 1, color: "#fff", height: 50, marginLeft: 50, marginRight : 50, padding: 10, borderWidth : 0.5, borderColor : "#eee"
+    flex: 1, 
+    color: "#fff", 
+    height: 50, 
+    marginLeft: 50, 
+    marginRight : 50, 
+    padding: 10, 
+    borderWidth : 0.5, 
+    borderColor : "#eee"
   }
 }
 

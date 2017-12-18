@@ -64,6 +64,7 @@ const uploadSaga = function*() {
         const listeners = yield call(uploadApi.uploadImage, payload);
         const task = yield fork(nativeEventLister, listeners);
         yield take(DO_UPLOAD_REQUEST_COMPLETED);
+        yield put({type : DO_UPLOAD_REQUEST_COMPLETED});
         yield cancel(task);
     }
 }
