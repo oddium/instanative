@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, TextInput, Text, FlatList, Image } from 'react-native';
+import { View, TextInput, Text, FlatList, Image, Dimensions } from 'react-native';
 import { FormLabel, FormInput } from 'react-native-elements';
 import Button from "react-native-button";
 import Modal from "react-native-modal";
 import BaseScreen from "../BaseScreenRN";
 import CommonHeader from "../../components/CommonHeader";
-import InstaImagePreview from "../../components/InstaImagePreview";
+import InstaImage from "../../components/InstaImage";
 import Configuration from "../../config/Configuration";
 // redux
 import { connect } from "react-redux";
@@ -17,7 +17,11 @@ import {
   saveProfile,
   fetchProfile
 } from "../../redux/auth/Actions";
-import { fetchMyRecentPhotos } from "../../redux/media/Actions";
+import { 
+  fetchMyRecentPhotos 
+} from "../../redux/media/Actions";
+
+const { width } = Dimensions.get('window');
 
 const styles = {
   editProfileButton : {
@@ -104,6 +108,7 @@ class ProfileScreen extends BaseScreen {
             data={myPhotos}
             keyExtractor={this._keyExtractor}
             renderItem={this._renderItem}
+            numColumns={2}
             ListEmptyComponent={this._renderNoPhotoFound}
           />
         </View>
@@ -114,7 +119,7 @@ class ProfileScreen extends BaseScreen {
   _keyExtractor = (item, index) => item.key;
 
   _renderItem = ({ item }) => {
-    return (<InstaImagePreview source={item.source} />);
+    return (<InstaImage source={item.source} width={width / 2} height={300} />);
   }
 
   _renderNoPhotoFound = () => {
