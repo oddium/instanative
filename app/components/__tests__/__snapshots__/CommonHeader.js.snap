@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a CommonHeader using Snapshots 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#fff",
+      "borderBottomColor": "#ccc",
+      "borderBottomWidth": 0.5,
+      "height": 62,
+      "justifyContent": "center",
+      "paddingTop": 20,
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../app/images/Instagram_logo.svg.png",
+      }
+    }
+    style={
+      Object {
+        "height": 36,
+        "width": 120,
+      }
+    }
+  />
+</View>
+`;

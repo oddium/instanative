@@ -16,6 +16,6 @@ test('http mock test', () => {
         path : "/media/recent"
     })
     .then((response) => {
-        expect(response.data.length).toEqual(10)
+        expect(response.data.length).toEqual(3)
     });
 });

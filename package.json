@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "NODE_ENV=test jest"
+		"test": "jest",
+		"test-and-update" : "jest --updateSnapshot" 
 	},
 	"dependencies": {
 		"event-emitter-es6": "^1.1.5",
