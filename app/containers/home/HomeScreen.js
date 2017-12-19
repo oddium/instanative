@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
-import { Navigation } from "react-native-navigation";
 import Video from 'react-native-video'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import InstaImage from '../../components/InstaImage'
 import BaseScreen from "../BaseScreenRN";
 import CommonHeader from "../../components/CommonHeader";
-import UploadMonitor from "../../components/UploadMonitor";
+import { UploadMonitor } from "../../components/UploadMonitor";
 // redux
 import { connect } from "react-redux";
 import { fetchRecentMedia } from "../../redux/media/Actions";

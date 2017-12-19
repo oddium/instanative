@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest"
+		"test": "NODE_ENV=test jest"
 	},
 	"dependencies": {
 		"event-emitter-es6": "^1.1.5",
@@ -16,7 +16,6 @@
 		"react-native-elements": "^0.18.4",
 		"react-native-fast-image": "^2.0.1",
 		"react-native-modal": "^4.1.1",
-		"react-native-navigation": "^1.1.273",
 		"react-native-progress": "^3.4.0",
 		"react-native-vector-icons": "^4.3.0",
 		"react-native-video": "^2.0.0",
@@ -27,6 +26,7 @@
 	},
 	"devDependencies": {
 		"babel-jest": "20.0.3",
+		"babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
 		"babel-preset-es2015": "^6.24.1",
 		"babel-preset-react-native": "2.1.0",
 		"babel-preset-stage-0": "^6.24.1",
@@ -34,6 +34,9 @@
 		"react-test-renderer": "16.0.0-alpha.12"
 	},
 	"jest": {
-		"preset": "react-native"
+		"preset": "react-native",
+		"transformIgnorePatterns": [
+			"node_modules/(?!(react-native|react-native-animatable|react-native-modal|react-native-fast-image|react-native-video|react-native-button|react-native-camera|react-native-progress|react-native-video|react-navigation|react-native-elements|react-native-vector-icons)/)"
+		]
 	}
 }

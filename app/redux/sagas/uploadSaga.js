@@ -31,7 +31,6 @@ function subscribeToNativeEvents(listeners) {
                 emit({type : DO_UPLOAD_REQUEST_COMPLETED}); 
                 emit(END); 
             }, 1000);
-
         });
 
         // the subscriber must return an unsubscribe function
