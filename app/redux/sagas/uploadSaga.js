@@ -14,6 +14,10 @@ function subscribeToNativeEvents(listeners) {
 
     const {nativeEventSender} = listeners;
 
+    // eventChannel metodu saga sistemine dışarıdan bir event
+    // göndermemize yardımcı bir kanal yaratıyor. Bu sayede saga
+    // sistemi içinde yer almayan upload progress event'lerini
+    // saga sistemi içine gönderebiliyoruz.
     return eventChannel(emit => {
 
         nativeEventSender.on('progress', (data) => {
@@ -29,15 +33,17 @@ function subscribeToNativeEvents(listeners) {
         nativeEventSender.on('completed', (data) => {
             setTimeout(() => {
                 emit({type : DO_UPLOAD_REQUEST_COMPLETED}); 
+                // END özel bir action oluşturulan kanalın durmasını sağlıyor.
+                // bu action'u saga sistemi dinliyor ve bu kanalı sisteminden kaldırıyor.
                 emit(END); 
             }, 1000);
         });
 
-        // the subscriber must return an unsubscribe function
-        // this will be invoked when the saga calls `channel.close` method
+        // unsubscribe metodu saga sistemi bu kanalı kapatırken çağrılıyor ve tamamen
+        // kapatılmadan bize son işlemleri yapmamızı sağlıyor.
         const unsubscribe = () => {
-            console.log("subscribeToNativeEvents unsubscribe");
-            // REMOVE NATIVE LISTENERS
+            // upload komponentine eklediğimiz listener'ları
+            // kaldırırız bu noktada.
             listeners.refs.forEach((ref) => {
                 ref.remove();
             });            

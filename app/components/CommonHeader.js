@@ -20,6 +20,12 @@ const styles = {
     }
 }
 
+/**
+ * Bu komponent bütün ekranların en tepesindeki instagram logosunun olduğu header alanıdır.
+ * Genel dizayn tasarlanırken ana amaç ortak olan kısımları komponent haline getirmektir 
+ * böylece hem daha az kod yazılmış olur hem de müdahale etmek gerektiği zaman tek bir
+ * noktada müdahale edilebilir.
+ */
 export default class CommonHeader extends Component {
 
     render() {

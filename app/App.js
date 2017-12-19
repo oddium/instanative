@@ -9,6 +9,11 @@ class App extends PureComponent {
     super(props);
   }
 
+  /**
+   * TakePhotoModal komponenti kamera komponentini içeren
+   * modalı yönetiyor ve burada yer almasının nedeni global bir noktada
+   * olmasını sağlamak, redux aracılığı ile modal açılıp kapatılıyor.
+   */
   render() {
     return <View style={{flex: 1}}>
             <MainTabbedRouter />

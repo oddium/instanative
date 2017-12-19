@@ -20,19 +20,10 @@ const styles = {
     alignItems : "center",
     backgroundColor : "#fff"
   },
-  activeTintColor: {
-   backgroundColor: '#fff',
-  },
   tab: {
     flex: 1,
     justifyContent : "center",
     alignItems : "center"    
-  },
-  tabText: {
-    color: '#fff',
-  },
-  inactiveTintColor: {
-    backgroundColor: '#fff',
   }
 };
 
@@ -41,7 +32,7 @@ const iconMap = [["entypo", "home"], ["entypo", "squared-plus"],["ionicon", "ios
 class InstaTab extends Component {
 
   render() {
-
+    // navigation ve jumpToIndex metodları react-navigation tarafından sağlanıyor.
     const {
       navigation,
       jumpToIndex
@@ -50,7 +41,7 @@ class InstaTab extends Component {
     const {
       routes
     } = navigation.state;
-    const { activeTintColor, tab, tabbar, tabText, inactiveTintColor } = styles;
+    const { tab, tabbar } = styles;
     return (
       <View style={tabbar}>
         {routes && routes.map((route, index) => {

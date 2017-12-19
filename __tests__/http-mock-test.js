@@ -7,8 +7,13 @@ import httpService from "../app/services/HttpService";
 
 test('http mock test', () => {
 
-    expect.assertions(1);
+    // bu statement kaç tane assertion çalıştırılacağını belirtir.
+    // genelde async testler için kullanılır.
+    expect.assertions(1); 
 
+    // bu logu bilinçli olarak yazdık, httpService mocklanmış olarak
+    // kullandığımızı göstermek için mock servise özel getName
+    // metodunu çağırıyoruz.
     console.log("httpService.getName() ->", httpService.getName());
 
     return httpService.fetch({

@@ -24,12 +24,11 @@ class HttpService {
             };
             
             fetch(url, processedRequestOptions)
-                .then(res => res.json()) // convert text response to json object
+                .then(res => res.json()) // gelen response text'ini json nesnesine dönüştürürüz.
                 .then(res => {
                     resolve(res);
                 })
                 .catch((err) => {
-                    // handle error conditions here...
                     reject({
                         status : "error"
                     });

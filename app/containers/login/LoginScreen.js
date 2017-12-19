@@ -31,6 +31,13 @@ export class LoginScreen extends BaseScreen {
     this.props.tryAutoLogin();
   }
 
+  /**
+   * saga login işlemini tamamladığı zaman yeni verilerin redux veri ağacına
+   * set edilmesini sağlar ve güncellenen redux veri ağacı değişimi
+   * dinleyen komponentlere gönderir. O anda aktif ekran login olduğu için
+   * login başarılı ise ana ekrana gideriz.
+   * 
+   */
   componentWillReceiveProps(newProps) {
     let {loginInProgress, loginCompleted, user} = newProps.auth;
 

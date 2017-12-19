@@ -6,7 +6,9 @@ import httpService from "../app/services/HttpService";
 // The assertion for a promise must be returned.
 it('http service test', () => {
 
-    expect.assertions(1);
+    // bu statement kaç tane assertion çalıştırılacağını belirtir.
+    // genelde async testler için kullanılır.
+    expect.assertions(1); 
 
     return httpService.fetch({
         apiPath : "http://46.101.162.248:6060", 
