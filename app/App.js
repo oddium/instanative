@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { View } from 'react-native'
-import MainTabbedRouter from "./routers/MainTabbedRouter";
+import { MainTabbedRouter } from "./routers/MainTabbedRouter";
 import TakePhotoModal from "./containers/media/TakePhotoModal";
 
 class App extends PureComponent {

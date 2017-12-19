@@ -41,7 +41,7 @@ export const Tabs = TabNavigator({
   swipeEnabled : false
 });
 
-export default Root = StackNavigator({
+export const MainTabbedRouter = StackNavigator({
   Tabs: {
     screen: Tabs,
   }

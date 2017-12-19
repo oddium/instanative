@@ -9,8 +9,7 @@ const { width } = Dimensions.get('window');
 export default class InstaImage extends Component {
 
   state = {
-    source : null,
-    random : ""
+    source : null
   }
 
   constructor(props) {
@@ -19,7 +18,7 @@ export default class InstaImage extends Component {
   }
 
   render() {
-      let {source, random} = this.state;
+      let {source} = this.state;
       let {width, height} = this.props;
       let imageWidth = width ? width : width;
       let imageHeight = height ? height : 600;
@@ -33,8 +32,7 @@ export default class InstaImage extends Component {
   }
 
   _getImageSource = () => {
-    let {source, random} = this.state; 
-    return Configuration.STATIC_HOST + source + "?_=" + random;
+    let {source} = this.state; 
+    return Configuration.STATIC_HOST + source;
   }
-
 }

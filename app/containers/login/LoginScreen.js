@@ -19,7 +19,7 @@ const styles = {
   }
 }
 
-class LoginScreen extends BaseScreen {
+export class LoginScreen extends BaseScreen {
 
   static navigationOptions = { 
     header: null, 
