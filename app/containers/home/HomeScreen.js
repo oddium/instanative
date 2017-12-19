@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
-import Video from 'react-native-video'
+import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import InstaImage from '../../components/InstaImage'
 import BaseScreen from "../BaseScreenRN";

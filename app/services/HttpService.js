@@ -9,7 +9,7 @@ class HttpService {
         return new Promise((resolve, reject) => {
 
             const {sendToken} = requestOptions;
-            const url = this.configureUrl(requestOptions);
+            const url = this._createUrl(requestOptions);
             const overriddenHeaders = requestOptions.headers || {};            
 
             const processedRequestOptions = {
@@ -37,45 +37,7 @@ class HttpService {
         });
     }
 
-    xmlHttpRequest(options) {
-
-        return new Promise(function (resolve, reject) {
-            
-            let xhr = new XMLHttpRequest();
-            xhr.timeout = Configuration.HTTP_TIMEOUT_MS;
-            xhr.open(options.method, options.url);
-
-            xhr.addEventListener("timeout", function(e) {
-                reject("timeout");
-            });
-
-            xhr.onload = function () {
-                if (this.status >= 200 && this.status < 300) {
-                    resolve(xhr);
-                } else {
-                    reject(xhr);
-                }
-            };
-
-            xhr.onerror = function () {
-                reject(xhr);
-            };
-
-            if (options.headers) {
-                Object.keys(options.headers).forEach(function (key) {
-                    xhr.setRequestHeader(key, options.headers[key]);
-                });
-            }
-
-            if (options.params) {
-                xhr.send(options.params);
-            } else {
-                xhr.send();
-            }
-        });        
-    }
-
-    configureUrl(requestOptions) {
+    _createUrl(requestOptions) {
         let url = requestOptions.apiPath || Configuration.API_URL;
         url = requestOptions.path ? (url + requestOptions.path) : url;
         return url;

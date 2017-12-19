@@ -5,6 +5,5 @@ jest.mock('sum-mock');
 
 test('adds 1 + 2 to equal 6', () => {
     let sum = require('sum-mock');
-    console.log("sum ->", sum);
-    expect(sum(1, 2)).toBe(3);
+    expect(sum(1, 2)).toBe(6);
 });
