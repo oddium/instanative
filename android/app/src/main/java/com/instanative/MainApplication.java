@@ -7,6 +7,7 @@ import com.dylanvann.fastimage.FastImageViewPackage;
 import com.vydia.RNUploader.UploaderReactPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.mol42.workshop.RNNativeToasterPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -30,7 +31,8 @@ public class MainApplication extends Application implements ReactApplication {
             new FastImageViewPackage(),
             new UploaderReactPackage(),
             new RCTCameraPackage(),
-            new VectorIconsPackage()
+            new VectorIconsPackage(),
+            new RNNativeToasterPackage()
       );
     }
 
