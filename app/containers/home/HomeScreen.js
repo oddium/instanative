@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Toast from "native-toaster";
 import InstaImage from '../../components/InstaImage'
 import BaseScreen from "../BaseScreenRN";
 import CommonHeader from "../../components/CommonHeader";
@@ -22,11 +21,6 @@ class HomeScreen extends BaseScreen {
 
   componentWillMount() {
     this.props.fetchRecentMedia();
-
-    setTimeout(() => {
-      Toast.show('This is a toast.');
-      // Toast.show.bind(null, "this is a message")
-    }, 3000);
   }
 
   componentWillReceiveProps(nextProps) {

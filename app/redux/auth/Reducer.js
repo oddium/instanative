@@ -1,6 +1,7 @@
 import { 
   LOGIN_REQUEST, 
   LOGIN_SUCCESS,
+  LOGIN_FAILURE,
   LOGIN_FORM_UPDATED,
   LOGOUT_REQUEST,
   PROFILE_NAME_CHANGED,
@@ -19,7 +20,9 @@ const initialState = {
   token : null,
   loggedIn : false,
   loginInProgress : false,
-  loginCompleted : false
+  loginCompleted : false,
+  loginHasError : true,
+  lastErrorTime : 0
 };
 
 export default function (state = initialState, action) {
@@ -29,7 +32,8 @@ export default function (state = initialState, action) {
   if (action.type === LOGIN_REQUEST) {
     return {
       ...state,
-      loginInProgress : true
+      loginInProgress : true,
+      loginHasError : false
     }
   }
   if (action.type === LOGIN_SUCCESS) {
@@ -40,9 +44,21 @@ export default function (state = initialState, action) {
       isLoggedIn : true,
       token : sessionToken,
       loginInProgress : false,
+      loginHasError : false,
       loginCompleted : true
     }
   }
+
+  if (action.type === LOGIN_FAILURE) {
+    return {
+      ...state,
+      loginInProgress : false,
+      loginCompleted : true,
+      loginHasError : true,
+      lastErrorTime : new Date().getTime()
+    }
+  }
+
   if (action.type === LOGIN_FORM_UPDATED) {
     let {email, password} = payload;
     return {

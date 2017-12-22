@@ -8,6 +8,7 @@ import {
     SAVE_PROFILE_REQUEST,
     FETCH_PROFILE_REQUEST,
     loginSuccess,
+    loginFailure,
     saveProfileSuccess,
     fetchProfileSuccess
 } from "../auth/Actions";
@@ -33,9 +34,11 @@ const tryLoginSaga = function*(action) {
             instaApi.setToken(sessionToken).saveAuthInfo(user, sessionToken);
             uploadApi.setToken(sessionToken);
             yield put(loginSuccess(loginResponse.data));
+        } else {
+            yield put(loginFailure({}));
         }
     } catch(err) {
-        console.log("tryLoginSaga err ->", err);
+        yield put(loginFailure({}));
     }
 }
 
