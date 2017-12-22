@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Image, TextInput, ImageBackground } from 'react-native'
 import Button from 'react-native-button';
 import BaseScreen from "../BaseScreenRN";
+import ErrorMessage from "../../components/ErrorMessage";
 // redux
 import { connect } from "react-redux";
 import { tryAutoLogin, tryLogin, updateLoginForm } from "../../redux/auth/Actions";
@@ -39,16 +40,17 @@ export class LoginScreen extends BaseScreen {
    * 
    */
   componentWillReceiveProps(newProps) {
-    let {loginInProgress, loginCompleted, user} = newProps.auth;
+    let {loginInProgress, loginCompleted, loginHasError, user} = newProps.auth;
 
-    if (!loginInProgress && loginCompleted && user.id > 0 && this.isVisible) {
+    if (!loginInProgress && loginCompleted && !loginHasError && user.id > 0  && this.isVisible) {
       this.navigateToScreen('HomeScreen');
       this.isVisible = false;
     }
   }
 
   render() {
-    let {email, password} = this.props.auth.loginForm;
+    let {loginCompleted, loginHasError, loginForm} = this.props.auth;
+    let {email, password} = loginForm;
 
     return <ImageBackground imageStyle={{resizeMode: "stretch", width: null, height: null}} source={require("../../images/login-bg-2.jpg")} style={{flex: 1, backgroundColor : "black"}}>
               <View style={{flex: 1, alignItems : "center", justifyContent : "center"}}>
@@ -71,6 +73,7 @@ export class LoginScreen extends BaseScreen {
                   </Button>
                 </View>
               </View>
+              <ErrorMessage enableError={loginCompleted} showError={loginCompleted && loginHasError} />
           </ImageBackground>
   }
 

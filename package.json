@@ -4,10 +4,11 @@
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest",
-		"test-and-update" : "jest --updateSnapshot" 
+		"test-and-update": "jest --updateSnapshot"
 	},
 	"dependencies": {
 		"event-emitter-es6": "^1.1.5",
+		"native-toaster": "git+https://github.com/mol42/native-toaster.git",
 		"react": "16.0.0",
 		"react-native": "0.50.3",
 		"react-native-background-upload": "^4.1.0",

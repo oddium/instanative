@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import InstaImage from '../../components/InstaImage'
 import BaseScreen from "../BaseScreenRN";
 import CommonHeader from "../../components/CommonHeader";
