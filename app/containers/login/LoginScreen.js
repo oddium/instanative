@@ -52,7 +52,9 @@ export class LoginScreen extends BaseScreen {
     let {loginCompleted, loginHasError, loginForm} = this.props.auth;
     let {email, password} = loginForm;
 
-    return <ImageBackground imageStyle={{resizeMode: "stretch", width: null, height: null}} source={require("../../images/login-bg-2.jpg")} style={{flex: 1, backgroundColor : "black"}}>
+    return <ImageBackground imageStyle={{resizeMode: "stretch", width: null, height: null}} 
+                            source={require("../../images/login-bg-2.jpg")} 
+                            style={{flex: 1, backgroundColor : "black"}}>
               <View style={{flex: 1, alignItems : "center", justifyContent : "center"}}>
                 <Image source={require("../../images/insta-logo.png")} style={{width: 125, height: 125}} />
                 <Image source={require("../../images/Instagram_logo.svg.png")} style={{width: 120, height : 36, marginTop: 20}} />
