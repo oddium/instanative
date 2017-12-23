@@ -30,7 +30,8 @@ const tryLoginSaga = function*(action) {
         const loginResponse = yield call(instaApi.doLogin, email, password);
         if (loginResponse && loginResponse.status == "ok") {
             let {sessionToken, user} = loginResponse.data;
-            // update api tokens
+            // api token bilgisini yardımcı olarak kullandığımız
+            // sınıflar ile paylaşıyoruz.
             instaApi.setToken(sessionToken).saveAuthInfo(user, sessionToken);
             uploadApi.setToken(sessionToken);
             yield put(loginSuccess(loginResponse.data));
@@ -73,6 +74,8 @@ const fetchProfileSaga = function*() {
     yield put(fetchProfileSuccess(profileResponse.data));    
 }
 
+// api istekleri için kullandığımız saga dinleyicilerini
+// tanımlıyoruz
 const apiSagas = function*() {
     yield takeLatest(LOGIN_REQUEST, tryLoginSaga);
     yield takeLatest(FETCH_RECENT_MEDIA_REQUEST, fetchRecentMediaSaga);
@@ -82,6 +85,8 @@ const apiSagas = function*() {
     yield takeLatest(FETCH_PROFILE_REQUEST, fetchProfileSaga);
 }
 
+// saga'lar birleştirilebiliyorlar ve burada upload ve
+// api istekleri için kullandığımız sagaları birleştiriyoruz
 const instaSaga = function* instaSaga() {
     yield [apiSagas(), uploadSaga()]
 }

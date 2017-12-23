@@ -25,6 +25,9 @@ class HomeScreen extends BaseScreen {
 
   componentWillReceiveProps(nextProps) {
     let {activeUpload} = this.props.media;
+    // bir upload işlemi bittiği zaman son yüklenen fotoyu
+    // göstermek için sunucudan fotoları isteyen
+    // aksiyonu tetikleriz.
     if (!activeUpload.running && activeUpload.completed) {
       this.props.fetchRecentMedia();
     }
