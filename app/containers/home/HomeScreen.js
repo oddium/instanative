@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Image, Text, StyleSheet, FlatList, TouchableOpacity, PermissionsAndroid } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import InstaImage from '../../components/InstaImage'
+import InstaImage from '../../components/InstaImage';
 import BaseScreen from "../BaseScreenRN";
 import CommonHeader from "../../components/CommonHeader";
 import { UploadMonitor } from "../../components/UploadMonitor";
+
 // redux
 import { connect } from "react-redux";
 import { fetchRecentMedia } from "../../redux/media/Actions";
+
+import Config from "../../config/Configuration";
 
 class HomeScreen extends BaseScreen {
 
@@ -21,6 +24,7 @@ class HomeScreen extends BaseScreen {
 
   componentWillMount() {
     this.props.fetchRecentMedia();
+    this._initializePermissions();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -88,6 +92,51 @@ class HomeScreen extends BaseScreen {
       return;
     }
     return <UploadMonitor progress={activeUpload.progress} />
+  }
+
+  _initializePermissions = async () => {
+    if (Config.PLATFORM_ANDROID) {
+      await this._askForCameraPermission();
+      await this._askForDirectoryPermission();
+    }
+  }
+
+  _askForCameraPermission = async () => {
+    try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.CAMERA,
+          {
+            'title': 'InstaNative',
+            'message': 'InstaNative ile fotoğraf yüklemek için kamera erişimi gerekiyor'
+          }
+        )
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log("You can use the camera")
+        } else {
+          console.log("Camera permission denied")
+        }
+      } catch (err) {
+        console.warn(err)
+      }
+  }
+
+  _askForDirectoryPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+        {
+          'title': 'InstaNative',
+          'message': 'InstaNative ile fotoğraflarınızı saklamak için izin istiyor.'
+        }
+      )
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        console.log("You can save file")
+      } else {
+        console.log("File write permission denied")
+      }
+    } catch (err) {
+      console.warn(err)
+    }    
   }
 }
 

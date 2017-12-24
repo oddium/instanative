@@ -32,11 +32,19 @@ function subscribeToNativeEvents(listeners) {
 
         nativeEventSender.on('completed', (data) => {
             setTimeout(() => {
-                emit({type : DO_UPLOAD_REQUEST_COMPLETED}); 
-                // END özel bir action oluşturulan kanalın durmasını sağlıyor.
-                // bu action'u saga sistemi dinliyor ve bu kanalı sisteminden kaldırıyor.
-                emit(END); 
+                // upload progress 100'e manuel olarak set ederiz
+                // böylece upload kütüphanesi tarafından gelebilecek
+                // hatalı yüzde değerini es geçmiş oluruz.
+                emit({type : UPLOAD_PROGRESS_CHANGED, payload : {progress : 100}});
+
+                setTimeout(() => {
+                    emit({type : DO_UPLOAD_REQUEST_COMPLETED}); 
+                    // END özel bir action oluşturulan kanalın durmasını sağlıyor.
+                    // bu action'u saga sistemi dinliyor ve bu kanalı sisteminden kaldırıyor.
+                    emit(END); 
+                }, 1000);
             }, 1000);
+            
         });
 
         // unsubscribe metodu saga sistemi bu kanalı kapatırken çağrılıyor ve tamamen
