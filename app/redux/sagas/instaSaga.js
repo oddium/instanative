@@ -32,7 +32,7 @@ const tryLoginSaga = function*(action) {
             let {sessionToken, user} = loginResponse.data;
             // api token bilgisini yardımcı olarak kullandığımız
             // sınıflar ile paylaşıyoruz.
-            instaApi.setToken(sessionToken).saveAuthInfo(user, sessionToken);
+            instaApi.setToken(sessionToken); // .saveAuthInfo(user, sessionToken);
             uploadApi.setToken(sessionToken);
             yield put(loginSuccess(loginResponse.data));
         } else {
